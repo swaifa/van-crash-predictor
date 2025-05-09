@@ -13,7 +13,7 @@
   Contributors: 
   <a href="https://github.sfu.ca/gma89">Gloria Mo</a> · 
   <a href="https://github.sfu.ca/rla187">Rojin Lohrasbinejad</a> · 
-  <a href="https://github.sfu.ca/sha392">Swaifa Haque</a>
+  <a href="https://github.com/swaifa">Swaifa Haque</a>
 </p>
 
 ---
