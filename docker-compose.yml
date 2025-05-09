@@ -1,0 +1,84 @@
+services:
+  zookeeper:
+    image: 'confluentinc/cp-zookeeper:latest'
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - '2181:2181'
+    volumes:
+      - 'zookeeper-data:/var/lib/zookeeper/data'
+      - 'zookeeper-logs:/var/lib/zookeeper/log'
+  kafka:
+    image: 'confluentinc/cp-kafka:latest'
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:9092'
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LISTENER_PORT: 9092
+    ports:
+      - '9092:9092'
+    volumes:
+      - 'kafka-data:/var/lib/kafka/data'
+  spark:
+    image: 'bitnami/spark:latest'
+    depends_on:
+      - kafka
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - '7077:7077'
+      - '8080:8080'
+    volumes:
+      - './spark-apps:/app'
+  jupyter:
+    image: 'jupyter/all-spark-notebook:latest'
+    depends_on:
+      - spark
+    ports:
+      - '8888:8888'
+    volumes:
+      - './notebooks:/home/jovyan/work'
+      - './spark_jars:/home/jovyan/spark_jars'
+    environment:
+      - 'JUPYTER_TOKEN=${JUPYTER_TOKEN}'
+  weather-producer:
+    build:
+      context: ./producers/weather-producer
+    depends_on:
+      - kafka
+    environment:
+      - 'KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}'
+      - 'WEATHER_API_KEY=${WEATHER_API_KEY}'
+    volumes:
+      - './producers/weather-producer:/app'
+    ports:
+      - '5001:5000'
+  traffic-producer:
+    build:
+      context: ./producers/traffic-producer
+    depends_on:
+      - kafka
+    environment:
+      - 'KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS}'
+      - 'TRAFFIC_API_KEY=${TRAFFIC_API_KEY}'
+      - 'KAFKA_MESSAGE_MAX_BYTES=200000000'
+      - 'KAFKA_REPLICA_FETCH_MAX_BYTES=200000000'
+    volumes:
+      - './producers/traffic-producer:/app'
+    ports:
+      - '5002:5000'
+  redis:
+    image: 'redis:latest'
+    container_name: redis-server
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis-data:/data'
+volumes:
+  zookeeper-data: 
+  zookeeper-logs: 
+  kafka-data:
+  redis-data:
