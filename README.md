@@ -190,7 +190,7 @@ The dashboard features an interactive map displaying all accident locations from
 ### Others
 
 We have a interactive hotspot heatmap as an HTML file. 
-![HTML Hotspot Heatmap](https://github.com/swaifa/van-crash-predictor/blob/main/visualizations/hotspot_heatmap.html)
+![HTML Hotspot Heatmap](https://github.com/swaifa/van-crash-predictor/blob/main/visualizations/heatmap_HTML.png)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
