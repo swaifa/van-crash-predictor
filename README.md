@@ -192,7 +192,12 @@ We have a interactive hotspot heatmap as an HTML file.
 ---
 
 ## Usage
-The crash prediction model aims to enhance road safety in British Columbia by predicting potential crash hotspots. This can help alert drivers and authorities to high-risk areas, contributing to safer roads for both people and road users.
+1/ Public Safety: Real-time crash risk warnings for drivers and emergency responders
+2/ City Planning: Data-driven insights for infrastructure and urban design
+3/ Policy-making: Identifying high-risk zones for proactive regulation
+4/ Social Benefit: Enables smarter mobility, reduced collisions, and informed civic decision-making
+5/ Cost Efficiency: Helps allocate city resources effectively through targeted interventions
+6/ Scalability: Easily adaptable to other regions and real-time data feeds
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
@@ -202,7 +207,7 @@ The model successfully identifies historical high-risk locations with good accur
 - **Accuracy:** 86% on validation data
 - **Precision/Recall:** Balanced performance across risk categories
 - **Feature Importance:** Weather, speed, time of day, and traffic flow are strong predictors
-In addition, the real-time streaming pipeline processes traffic and weather updates in near real-time (~1s latency), and the Redis cache enables fast risk score retrieval for visualization and alerting.
+In addition, the real-time streaming pipeline processes traffic and weather updates in near real-time (~1s latency), and the Redis cache enables fast risk score retrieval for visualization and alerting. The recommendation system and live map for hotspots can also be viewed with code setup. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
