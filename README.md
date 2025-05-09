@@ -102,6 +102,7 @@ The system will begin ingesting data and making real-time crash hotspot predicti
 If you want to explore or retrain the model manually:
 ```
 jupyter notebook model/ml_model.ipynb
+jupyter notebook model/RecommendationSystem.ipynb
 ```
 
 This notebook includes feature engineering, training, and evaluation steps.
@@ -147,7 +148,7 @@ Redis is used to serve the latest aggregated traffic and weather data during rea
 
 ## Machine Learning
 
-This project uses supervised learning to predict crash severity risk at specific locations and times. The model is trained using historical crash data enriched with weather and traffic context.
+This project uses supervised learning to predict crash severity risk at specific locations and times. The model is trained using historical crash data enriched with weather and traffic context. A second model was used to suggest remedies for hotspots around the city. 
 
 ### Machine Learning Model
 
@@ -173,6 +174,9 @@ After training, the model generates crash risk scores for location-time combinat
 - **Moderate risk:** Some crash indicators present
 - **High risk:** Strong indicators of upcoming crash risk
 
+### Recommendation Model 
+Suggest remedies by analysing the top contribution factor for hotspots. 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
@@ -181,12 +185,12 @@ After training, the model generates crash risk scores for location-time combinat
 
 ### Tableau Dashboard
 The dashboard features an interactive map displaying all accident locations from 2019 to 2023. In addition, various charts provide insights into the causes of accidents and other contributing factors, helping to analyze patterns and trends in road safety.
-![Tableau Dashboard](https://github.sfu.ca/gma89/van-crash-predictor/blob/staging/Tableau%20Dashboard.png)
+![Tableau Dashboard](https://github.com/swaifa/van-crash-predictor/blob/main/tableau/Tableau%20Dashboard.png)
 
 ### Others
 
 We have a interactive hotspot heatmap as an HTML file. 
-![HTML Hotspot Heatmap](https://github.sfu.ca/gma89/van-crash-predictor/blob/staging/HTML.png)
+![HTML Hotspot Heatmap](https://github.com/swaifa/van-crash-predictor/blob/main/visualizations/hotspot_heatmap.html)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
