@@ -5,7 +5,7 @@
 <h3 align="center">British Columbia Car Crash Predictor</h3>
 
 <p align="center">
-  In this project, we analyze car crash incidents in British Columbia, Canada, and predict real-time hotspots for car crashes.
+  Our project predicts and identifies crash hotspots by combining historical crash data with real-time traffic and weather information. The goal is to enable proactive, data-driven interventions to preventcollisions before they happen and suggest remedies to decision makers to reduce the number of hotspots in the city. 
   <br />
   <a href="https://github.sfu.ca/gma89/van-crash-predictor"><strong>Explore the code »</strong></a>
   <br />
