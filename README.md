@@ -59,7 +59,7 @@
 
 ## About The Project
 
-This project analyzes historical car crash data in British Columbia to predict high-risk locations for future incidents. The system is built using Python, Apache Spark, Apache Kafka, and PySpark.ML for data processing and machine learning. The results are visualized using Seaborn, Folium, and a dashboard in Tableau for intuitive insight presentation.
+This project analyzes historical car crash data in British Columbia to predict high-risk locations for future incidents. The data pipeling and recommendation system is built using Python, Apache Spark, Apache Kafka, and PySpark.ML for data processing and machine learning. The results are visualized using Seaborn, Folium, and a dashboard in Tableau for intuitive insight presentation. The goal is to enable proactive, data-driven interventions to preventcollisions before they happen and suggest remedies to decision makers to reduce the number of hotspots in the city. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
